@@ -9,7 +9,7 @@ public class Main {
 //        START FROM LESSON 131
 //        Working with Files
     File file = createFile("src/foo.txt");
-//    writeToFile(file,false);
+    writeToFile(file,true);
 
 
         try {
@@ -25,17 +25,25 @@ public class Main {
     }
 
     private static void writeToFile(File file,boolean append){
-        try {
-            FileWriter fileWriter = new FileWriter(file,append);
-            PrintWriter writer = new PrintWriter(fileWriter);
-            writer.println("Come");
-            writer.println("Here");
-
-            writer.flush();
-            writer.close();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+        //TRY WITH RESOURCES
+        try(
+                FileWriter fileWriter = new FileWriter(file,append);
+                PrintWriter writer = new PrintWriter(fileWriter);
+                ) {
+            writer.println("Jamila");
         }
+         catch (IOException e){
+             System.out.println(e.getMessage());
+         }
+//        try {
+//            FileWriter fileWriter = new FileWriter(file,append);
+//            PrintWriter writer = new PrintWriter(fileWriter);
+//            writer.println("Come");
+//            writer.flush();
+//            writer.close();
+//        } catch (IOException e) {
+//            System.out.println(e.getMessage());
+//        }
     }
 
     private static File  createFile(String path){
