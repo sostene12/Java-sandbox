@@ -1,17 +1,27 @@
 package com.amigoscode;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args)  {
-//        START FROM LESSON 129
+//        START FROM LESSON 131
 //        Working with Files
     File file = createFile("src/foo.txt");
-    writeToFile(file,true);
+//    writeToFile(file,false);
+
+
+        try {
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNext()){
+                System.out.println(scanner.nextLine());
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+
     }
 
     private static void writeToFile(File file,boolean append){
@@ -19,7 +29,6 @@ public class Main {
             FileWriter fileWriter = new FileWriter(file,append);
             PrintWriter writer = new PrintWriter(fileWriter);
             writer.println("Come");
-            writer.println("");
             writer.println("Here");
 
             writer.flush();
