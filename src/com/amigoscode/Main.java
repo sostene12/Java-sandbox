@@ -1,16 +1,13 @@
 package com.amigoscode;
 
-import java.io.*;
-import java.util.Scanner;
-
 public class Main {
 
     public static void main(String[] args)  {
 //        START FROM LESSON 136
 //        Classes
-        Cat cat = new Cat();
-        cat.setName("Rose");
+        Cat cat = new Cat("Rose",5);
         cat.meow();
         System.out.println(cat.getName());
+        System.out.println(cat.getAge() );
     }
 }
