@@ -1,64 +1,21 @@
 package com.amigoscode;
 
 import java.io.*;
+import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args)  {
-//        START FROM LESSON 131
-//        Working with Files
-    File file = createFile("src/foo.txt");
-    writeToFile(file,true);
+//        START FROM LESSON 155
+        Address address = new Address("foobar st","00000","Rwanda");
+        Car car1 = new Car(CarBrand.TESLA,new BigDecimal("85000"));
+        Car car2 = new Car(CarBrand.BMW,new BigDecimal("50000"));
+        Car[] cars = {car1,car2};
 
-
-        try {
-            Scanner scanner = new Scanner(file);
-            while (scanner.hasNext()){
-                System.out.println(scanner.nextLine());
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
-
-
+        Person alex = new Person("Alex",22,address, cars);
+        System.out.println(alex);
     }
-
-    private static void writeToFile(File file,boolean append){
-        //TRY WITH RESOURCES
-        try(
-                FileWriter fileWriter = new FileWriter(file,append);
-                PrintWriter writer = new PrintWriter(fileWriter);
-                ) {
-            writer.println("Jamila");
-        }
-         catch (IOException e){
-             System.out.println(e.getMessage());
-         }
-//        try {
-//            FileWriter fileWriter = new FileWriter(file,append);
-//            PrintWriter writer = new PrintWriter(fileWriter);
-//            writer.println("Come");
-//            writer.flush();
-//            writer.close();
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
-    }
-
-    private static File  createFile(String path){
-        try {
-            File file = new File(path);
-            if(!file.exists()){
-                file.createNewFile();
-            }
-            return  file;
-        }
-        catch (IOException e) {
-            System.out.println(e.getMessage());
-            throw new IllegalStateException(e);
-        }
-    }
-
 
 }
