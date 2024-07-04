@@ -1,4 +1,6 @@
-package com.amigoscode;
+package com.amigoscode.person;
+
+import com.amigoscode.cat.Cat;
 
 import java.util.Arrays;
 import java.util.Objects;
