@@ -12,6 +12,7 @@ public class ElectricScooter implements Vehicle {
 
     @Override
     public  void move(int amount){
+        System.out.println("hop on and press button");
         this.currentSpeed+=amount;
     }
 

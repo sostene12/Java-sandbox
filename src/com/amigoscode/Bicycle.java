@@ -12,6 +12,7 @@ public class Bicycle implements Vehicle {
 
     @Override
     public void move(int amount) {
+        System.out.println("Pedal");
         this.currentSpeed+=amount;
     }
 
