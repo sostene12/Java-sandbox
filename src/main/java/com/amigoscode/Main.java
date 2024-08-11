@@ -5,7 +5,7 @@ import com.github.javafaker.Faker;
 public class Main {
 
     public static void main(String[] args)  {
-//        START FROM LESSON 264
+//        START FROM LESSON 275
         Faker faker = new Faker();
         String name = faker.name().fullName();
         String email = faker.internet().emailAddress();
